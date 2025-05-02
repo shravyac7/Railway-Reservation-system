@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Reservation System</title>
+    <link rel="stylesheet" href="2.css">
+</head>
+    <div class="container" id="home">
+        <header>
+            <img src="logo.jpg" alt="Railway Logo" class="logo">
+            <h1>Railway Reservation System</h1>
+        </header>
+        <nav>
+            <button onclick="showSchedules()"><a href="train_schedules.html">show train schedules</a></button>
+            <button onclick="showBookingForm()">Ticket Booking Form</button><body>
+
+        </nav>
+    </div>
+
+   
+    
+    <div class="container" id="bookingForm" style="display: none;">
+        <h2>Ticket Booking Form</h2>
+        <form id="ticketForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="trainNumber">Train Number:</label>
+                <input type="text" id="trainNumber" name="trainNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="numPassengers">Number of Passengers:</label>
+                <input type="number" id="numPassengers" name="numPassengers" required>
+            </div>
+            <div class="form-group">
+                <label for="class">Class:</label>
+                <select id="class" name="class" required>
+                    <option value="first">First Class</option>
+                    <option value="second">Second Class</option>
+                    <option value="third">Third Class</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="seatNumbers">Seat Numbers:</label>
+                <input type="text" id="seatNumbers" name="seatNumbers" required>
+            </div>
+            <button type="button" onclick="submitTicket()">Submit</button>
+        </form>
+    </div>
+
+    <div class="container" id="confirmation" style="display: none;">
+        <h2>Ticket Booked Successfully!</h2>
+        <p>Thank you for booking with us. Here are your ticket details:</p>
+        <div id="ticketDetails"></div>
+        <button onclick="startNewBooking()">Book Another Ticket</button>
+    </div>
+
+    <script>
+        function showSchedules() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('schedules').style.display = 'block';
+        }
+
+        function showBookingForm() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('bookingForm').style.display = 'block';
+        }
+
+        function goHome() {
+            document.getElementById('schedules').style.display = 'none';
+            document.getElementById('home').style.display = 'block';
+        }
+
+        function submitTicket() {
+            document.getElementById('bookingForm').style.display = 'none';
+            document.getElementById('confirmation').style.display = 'block';
+            const name = document.getElementById('name').value;
+            const trainNumber = document.getElementById('trainNumber').value;
+            const numPassengers = document.getElementById('numPassengers').value;
+            const travelClass = document.getElementById('class').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const seatNumbers = document.getElementById('seatNumbers').value;
+
+            document.getElementById('ticketDetails').innerHTML = `
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Train Number:</strong> ${trainNumber}</p>
+                <p><strong>Number of Passengers:</strong> ${numPassengers}</p>
+                <p><strong>Class:</strong> ${travelClass}</p>
+                <p><strong>Phone Number:</strong> ${phoneNumber}</p>
+                <p><strong>Seat Numbers:</strong> ${seatNumbers}</p>
+            `;
+        }
+
+        function startNewBooking() {
+            document.getElementById('confirmation').style.display = 'none';
+            document.getElementById('home').style.display = 'block';
+            document.getElementById('ticketForm').reset();
+        }
+    </script>
+</body>
+</html>

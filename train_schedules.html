@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rail Yatra - Train Schedules</title>
+    <style>
+        /* Same CSS styles as before */
+        /* ... */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rail Yatra - Train Schedules</h1>
+        <table id="trainScheduleTable">
+            <thead>
+                <tr>
+                    <th>Train Number</th>
+                    <th>Train Name</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>From Station</th>
+                    <th>To Station</th>
+                </tr>
+            </thead>
+            <tbody id="trainScheduleBody">
+                <!-- Train schedules will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Sample train schedules data (replace with actual data)
+        const trainSchedules = [
+        { trainNumber: '12009', trainName: 'Shatabdi Express', departureTime: '06:25', arrivalTime: '13:10', fromStation: 'Mumbai Central', toStation: 'Ahmedabad Junction'},
+   	{ trainNumber: '22435', trainName: 'Vande Bharat Express', departureTime: '15:00', arrivalTime: '23:00', fromStation: 'Varanasi', toStation: 'NewDelhi'},
+	{ trainNumber: '123456', trainName: 'Palace On Wheels', departureTime: '18:00', arrivalTime: '7:30', fromStation: 'NewDelhi', toStation: 'NewDelhi'},
+	{ trainNumber: '14096', trainName: 'Himalayan Queen', departureTime: '16:55', arrivalTime: '22:40', fromStation: 'Kalka', toStation: 'Delhi'},
+	{ trainNumber: '12246', trainName: 'Duronto Express', departureTime: '11:20', arrivalTime: '16:50', fromStation: 'Bengaluru', toStation: 'Howrah'},
+	{ trainNumber: '16543', trainName: 'Fairy Queen', departureTime: '8:00', arrivalTime: '12:00', fromStation: 'NewDelhi', toStation: 'Alwar'},
+	{ trainNumber: '21347', trainName: 'Humsafar Express', departureTime: '13:00', arrivalTime: '18:00', fromStation: 'Kolkata Sealdah', toStation: 'Jammu Tawi'},
+	{ trainNumber: '21365', trainName: 'Vivek Express', departureTime: '7:00', arrivalTime: '11:00', fromStation: 'Dibrugarh', toStation: 'Kanyakumari'},
+	{ trainNumber: '12790', trainName: 'Royal Rajasthan On Wheels', departureTime: '16:00', arrivalTime: '21:00', fromStation: 'NewDelhi', toStation: 'Agra'},
+	{ trainNumber: '12732', trainName: 'Golden Chariot', departureTime: '5:00', arrivalTime: '12:00', fromStation: 'Bengaluru', toStation: 'Goa'},
+        ];
+
+        // Function to display train schedules in the table
+        function displayTrainSchedules() {
+            const tableBody = document.getElementById('trainScheduleBody');
+            tableBody.innerHTML = ''; // Clear existing rows
+
+            trainSchedules.forEach(schedule => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${schedule.trainNumber}</td>
+                    <td>${schedule.trainName}</td>
+                    <td>${schedule.departureTime}</td>
+                    <td>${schedule.arrivalTime}</td>
+                    <td>${schedule.fromStation}</td>
+                    <td>${schedule.toStation}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Call the function to display train schedules when the page loads
+        window.onload = displayTrainSchedules;
+    </script>
+</body>
+</html>

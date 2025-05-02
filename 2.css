@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Reservation System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #4CAF50; color: white; padding: 15px; text-align: center; }
+        main { padding: 20px; max-width: 800px; margin: auto; background: white; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
+        h1, h2 { color: #333; }
+        label { display: block; margin: 10px 0 5px; }
+        input, select, button { width: 100%; padding: 10px; margin: 5px 0 15px; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Railway Reservation System</h1>
+    </header>
+    <main>
+        <h2>Book Your Ticket</h2>
+        <form id="reservation-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="from">From:</label>
+            <input type="text" id="from" name="from" required>
+
+            <label for="to">To:</label>
+            <input type="text" id="to" name="to" required>
+
+            <label for="date">Date of Journey:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="class">Class:</label>
+            <select id="class" name="class" required>
+                <option value="first">First Class</option>
+                <option value="second">Second Class</option>
+                <option value="third">Third Class</option>
+            </select>
+
+            <label for="passengers">Number of Passengers:</label>
+            <input type="number" id="passengers" name="passengers" min="1" required>
+
+            <button type="submit">Book Now</button>
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('reservation-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Here you would handle the form submission, e.g., send the data to your server
+            alert('Ticket booked successfully!');
+        });
+    </script>
+</body>
+</html>
